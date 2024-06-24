@@ -1,0 +1,57 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.header {
+    background-color: green;
+    color: white;
+    padding: 0 50%;
+    margin-bottom: 20px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    max-width: 600px;
+}
+
+.calculator-display {
+    background-color: darkgreen;
+    font-size: 24px;
+    font-weight: 700;
+    color: white;
+    border: 1px solid black;
+}
+
+#keypad {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    width: 100%;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.key {
+    width: 33%;
+}
+
+.key > button{
+    width: 100%;
+    aspect-ratio: 16/15;
+}
+
+.key {
+    padding: 10px;
+    background-color: green;
+}
