@@ -114,9 +114,9 @@ equalsButton.addEventListener("click", () => {
 	let displayArray = displayVal.split(regexOps);
 	console.log(`Display array: ${displayArray}`);
 	// read num1
-	firstNum = displayArray[0];
+	firstNum = displayArray[0].match(regexNums);
 	// read num2
-	secondNum = displayArray[1];
+	secondNum = displayArray[1].match(regexNums);
 	// read operatorSign
 	operatorSign = displayVal.match(regexOps);
 	operatorSign = operatorSign.toString().trim();
