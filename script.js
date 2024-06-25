@@ -28,7 +28,7 @@ const multiply = function (num1, num2) {
 // divide 2 nums
 const divide = function (num1, num2) {
 	// Catch divide by 0
-	if (num2 === "0") {
+	if (parseInt(num2) === 0) {
 		return "Nice try nerd";
 	} else {
 		//console.log(num1 / num2);
