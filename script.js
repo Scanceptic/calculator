@@ -1,18 +1,27 @@
 // add 2 nums
 const add = function (num1, num2) {
 	//console.log(num1 + num2);
+	// convert to numbers
+	num1 = parseInt(num1);
+	num2 = parseInt(num2);
 	return num1 + num2;
 };
 
 // subtract 2 nums
 const subtract = function (num1, num2) {
 	//console.log(num1 - num2);
+	// convert to numbers
+	num1 = parseInt(num1);
+	num2 = parseInt(num2);
 	return num1 - num2;
 };
 
 // multiply 2 nums
 const multiply = function (num1, num2) {
 	//console.log(num1 * num2);
+	// convert to numbers
+	num1 = parseInt(num1);
+	num2 = parseInt(num2);
 	return num1 * num2;
 };
 
@@ -23,6 +32,9 @@ const divide = function (num1, num2) {
 		return "Nice try nerd";
 	} else {
         //console.log(num1 / num2);
+		// convert to numbers
+		num1 = parseInt(num1);
+		num2 = parseInt(num2);
 	    return num1 / num2;
     }
 };
@@ -31,6 +43,9 @@ const divide = function (num1, num2) {
 
 const operate = function (num1, num2, operator) {
 	//console.log(operator(num1, num2));
+	// convert to numbers
+	num1 = parseInt(num1);
+	num2 = parseInt(num2);
 	return operator(num1, num2);
 };
 
@@ -146,7 +161,8 @@ equalsButton.addEventListener("click", () => {
     Need to add exceptions for if display is invalid 
     - lacking two numbers separated by an operator
     */
-
+	// Read overflow string
+	console.log("Overflow: " + displayArray[2]);
 	// clear saved values
 	firstNum = undefined;
 	secondNum = undefined;
