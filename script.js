@@ -97,7 +97,7 @@ const regexOps = /[+\-*/]/;
 equalsButton.addEventListener("click", () => {
 	// Use operator regex to split display into nums/ops
 	let displayArray = displayVal.split(regexOps);
-	//console.log(displayArray);
+	console.log(`Display array: ${displayArray}`);
 	// read num1
 	firstNum = displayArray[0];
 	// read num2
@@ -141,6 +141,7 @@ equalsButton.addEventListener("click", () => {
 			updateDisplay(result);
 			break;
 	}
+	console.log(`First num: ${firstNum}, Second num: ${secondNum}, Result: ${result}`);
 	/* 
     Need to add exceptions for if display is invalid 
     - lacking two numbers separated by an operator
