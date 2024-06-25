@@ -31,12 +31,12 @@ const divide = function (num1, num2) {
 	if (num2 === "0") {
 		return "Nice try nerd";
 	} else {
-        //console.log(num1 / num2);
+		//console.log(num1 / num2);
 		// convert to numbers
 		num1 = parseInt(num1);
 		num2 = parseInt(num2);
-	    return num1 / num2;
-    }
+		return num1 / num2;
+	}
 };
 
 // Operate function used for equals button
@@ -105,70 +105,83 @@ let operator = undefined;
 let operatorSign = undefined;
 let result = undefined;
 // Regex to read nums
-const regexNums = /\d+/;
+const regexNums = /\d+/g;
 // Regex to read operators
-const regexOps = /[+\-*/]/;
+const regexOps = /[+\-*/]/g;
 
 equalsButton.addEventListener("click", () => {
-	// Use operator regex to split display into nums/ops
-	let displayArray = displayVal.split(regexOps);
-	console.log(`Display array: ${displayArray}`);
-	// read num1
-	firstNum = displayArray[0].match(regexNums);
-	// read num2
-	secondNum = displayArray[1].match(regexNums);
-	// read operatorSign
-	operatorSign = displayVal.match(regexOps);
-	operatorSign = operatorSign.toString().trim();
-	//console.log(`Operator is ${operatorSign} of type: ${typeof operatorSign}`);
-	// convert operator sign into function
-	switch (operatorSign) {
-		case "+":
-			//console.log("Add");
-			// clear display
-			clearDisplay();
-			// update display with new result
-            result = operate(firstNum, secondNum, add);
-			updateDisplay(result);
-			break;
-		case "-":
-			//console.log("Subtract");
-            // clear display
-			clearDisplay();
-			// update display with new result
-            result = operate(firstNum, secondNum, subtract);
-			updateDisplay(result);
-			break;
-		case "*":
-			//console.log("Multiply");
-            // clear display
-			clearDisplay();
-			// update display with new result
-            result = operate(firstNum, secondNum, multiply);
-			updateDisplay(result);
-			break;
-		case "/":
-			//console.log("Divide");
-            // clear display
-			clearDisplay();
-			// update display with new result
-            result = operate(firstNum, secondNum, divide);
-			updateDisplay(result);
-			break;
+	// Use operator regex to read operators
+	let opsArray = displayVal.match(regexOps);
+	console.log(`Ops array: ${opsArray}`);
+	// Use nums regex to read nums
+	let numsArray = displayVal.match(regexNums);
+	console.log(`Nums array: ${numsArray}`);
+
+	// Loop through calculations
+	for (let i = 0; i < numsArray.length; i++) {
+		// read num1
+		// if first calc in sequence take nums[i] 
+		if (i===0) {
+			firstNum = numsArray[i];
+		} else {
+			// else take previous result
+			firstNum = result;
+		}
+		// read num2
+		secondNum = numsArray[i+1];
+		// read operatorSign
+		operatorSign = opsArray[i];
+		operatorSign = operatorSign.toString().trim();
+		//console.log(`Operator is ${operatorSign} of type: ${typeof operatorSign}`);
+		// convert operator sign into function
+		switch (operatorSign) {
+			case "+":
+				//console.log("Add");
+				// clear display
+				clearDisplay();
+				// update display with new result
+				result = operate(firstNum, secondNum, add);
+				updateDisplay(result);
+				break;
+			case "-":
+				//console.log("Subtract");
+				// clear display
+				clearDisplay();
+				// update display with new result
+				result = operate(firstNum, secondNum, subtract);
+				updateDisplay(result);
+				break;
+			case "*":
+				//console.log("Multiply");
+				// clear display
+				clearDisplay();
+				// update display with new result
+				result = operate(firstNum, secondNum, multiply);
+				updateDisplay(result);
+				break;
+			case "/":
+				//console.log("Divide");
+				// clear display
+				clearDisplay();
+				// update display with new result
+				result = operate(firstNum, secondNum, divide);
+				updateDisplay(result);
+				break;
+		}
+		console.log(
+			`First num: ${firstNum}, Second num: ${secondNum}, Result: ${result}`
+		);
 	}
-	console.log(`First num: ${firstNum}, Second num: ${secondNum}, Result: ${result}`);
 	/* 
     Need to add exceptions for if display is invalid 
     - lacking two numbers separated by an operator
     */
-	// Read overflow string
-	console.log("Overflow: " + displayArray[2]);
 	// clear saved values
 	firstNum = undefined;
 	secondNum = undefined;
 	operatorSign = undefined;
-    operator = undefined;
-    result = undefined;
+	operator = undefined;
+	result = undefined;
 });
 
 // When clear button is clicked, delete displayVals and update
