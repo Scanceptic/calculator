@@ -43,9 +43,9 @@ const updateDisplay = function (val) {
 	console.log(`Val is = ${val}`);
 	console.log(`Val type is = ${typeof val}`);
 	displayVal = displayVal.concat(val);
-	// round to 15 chars
-	if (displayVal.length > 15) {
-		displayVal = displayVal.slice(0, 16);
+	// round to 35 chars
+	if (displayVal.length > 35) {
+		displayVal = displayVal.slice(0, 36);
 	}
 	console.log(`displayVal is = ${displayVal}`);
 	calcDisplay.textContent = displayVal;
