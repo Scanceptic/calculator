@@ -118,7 +118,7 @@ equalsButton.addEventListener("click", () => {
 	console.log(`Nums array: ${numsArray}`);
 
 	// Loop through calculations
-	for (let i = 0; i < numsArray.length; i++) {
+	for (let i = 0; i < numsArray.length - 1; i++) {
 		// read num1
 		// if first calc in sequence take nums[i] 
 		if (i===0) {
